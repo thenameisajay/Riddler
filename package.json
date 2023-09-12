@@ -1,0 +1,19 @@
+{
+  "name": "riddler",
+  "version": "1.0.0",
+  "description": "This is web application for people who like riddles. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "riddle-me",
+    "riddler",
+    "riddler"
+  ],
+  "author": "AJAY PRADEEP MAHADEVEN",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
