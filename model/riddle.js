@@ -5,7 +5,7 @@ const riddleSchema = new mongoose.Schema({
   No: Number,
   Question: String,
   Answer: String,
-  Categoty: String,
+  Category: String,
 });
 
 // Creating the database model

@@ -9,23 +9,7 @@ app.get("/" , (req,res) => {
 res.send("Hello World!");
 });
 
-app.get("/create" , (req,res) => {
-    const newRiddle = new Riddle({
-        No: 1,
-        Question: "What is the capital of India?",
-        Answer: "New Delhi",
-        Category: "Geography",
-      });
-      
-      newRiddle.save()
-        .then(() => {
-          console.log("Riddle saved to database");
-        })
-        .catch((error) => {
-          console.error("Error saving riddle:", error);
-        });
-        
-    });
+
 
 const port = process.env.port || 3000;
 
