@@ -1,11 +1,10 @@
 const express = require("express");
-const mongoose = require("mongoose");
+
 const Riddle = require("../model/riddle");
 const router = express.Router();
 const bodyParser = require("body-parser");
 router.use(bodyParser.urlencoded({ extended: false }));
 
-const app = express();
 router.use(express.json());
 
 const numbers = [];
@@ -16,7 +15,9 @@ router.get("/", (req, res) => {
       console.log(result);
       const number = result[0].No;
       if (numbers.includes(number)) {
+        // Total number of riddles is 101 so if the array length is 101, it means that all the riddles have been displayed once , adding more riddles means you have to handle the case when the array length is 101.
         if (numbers.length === 101) {
+          // Resetting the array
           numbers.splice(0, 100);
           console.log("The array has been reset");
         }
