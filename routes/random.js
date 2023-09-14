@@ -3,19 +3,24 @@ const bodyParser = require("body-parser");
 const Riddle = require("../model/riddle");
 
 const router = express.Router();
-const MAX_RIDDLES = 101;
+
 const numbers = [];
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(express.json());
 
 router.get("/", async (req, res) => {
+
   try {
+
+    const count = await Riddle.countDocuments(); // Count the number of documents in the collection
+  
+
     const result = await Riddle.aggregate([{ $sample: { size: 1 } }]);
     const number = result[0].No;
 
-    if (numbers.length === MAX_RIDDLES) {
-      numbers.splice(0, MAX_RIDDLES - 1);
+    if (numbers.length === count) {
+      numbers.splice(0, count - 1);
       console.log("The array has been reset");
       return res.redirect("/random");
     }
