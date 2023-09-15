@@ -4,13 +4,18 @@ const Riddle = require("../model/riddle");
 
 const router = express.Router();
 
-const numbers = [];
-
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(express.json());
 
 router.get("/", async (req, res) => {
-  console.log("Hello");
+  // Get the categories from the database
+  try {
+    const result = await Riddle.find().distinct("Category");
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 module.exports = router;

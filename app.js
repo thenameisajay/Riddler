@@ -14,14 +14,62 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const random = require("./routes/random");
 const category = require("./routes/category");
 
+
 // Importing the database connection
 const connectDB = require("./config/db");
+
+// Intialising the model
+const Riddle = require("./model/riddle");
 
 // Intialising the routes
 app.use("/random", random);
 app.use("/category", category);
 
-app.get("/", (req, res) => {
+
+let numbers = [];
+
+// Play By Category Route ( /categoryPlay/:category ) code written on app.js (not good practice).
+app.get("/categoryPlay/:category", async (req, res) => {
+  const category = req.params.category;
+  console.log(category);
+
+  let number = 0;
+  const count = await Riddle.countDocuments({ Category: category }); // Count the number of documents in the collection
+  try {
+    const result = await Riddle.aggregate([
+        { $match: { Category: category } },
+        { $sample: { size: 1 } },
+    ]);
+
+    number = result[0].No;
+    console.log(number);
+
+if (numbers.length === count) {
+      numbers.splice(0, count - 1);
+      console.log("The array has been reset");
+      return res.redirect(`/CategoryPlay/${category}`); 
+    }
+
+     // check if the number is in the array
+    if (numbers.includes(number)) {
+      console.log("This number is already in the array");
+      return res.redirect(`/CategoryPlay/${category}`); 
+    } else {
+      numbers.push(number);
+     
+      res.json(result);
+    }
+
+    console.log(numbers);
+} catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal Server Error" });
+}
+
+});
+
+
+app.get("/", async (req, res) => {
   res.send("Hello World!");
 });
 
