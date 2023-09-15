@@ -10,8 +10,7 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
-
+app.use(express.static(buildPath))
 //Importing the routes
 const random = require("./routes/random");
 const category = require("./routes/category");
@@ -31,7 +30,7 @@ app.use("/category", category);
 let numbers = [];
 
 // Play By Category Route ( /categoryPlay/:category ) code written on app.js (not good practice).
-app.get("/categoryPlay/:category", async (req, res) => {
+app.get("/categoryplay/:category", async (req, res) => {
   const category = req.params.category;
   let number = 0;
   const count = await Riddle.countDocuments({ Category: category }); // Count the number of documents in the collection
@@ -67,8 +66,6 @@ if (numbers.length === count) {
 }
 
 });
-
-
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(buildPath, "index.html"));
