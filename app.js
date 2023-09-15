@@ -27,7 +27,7 @@ app.use("/random", random);
 app.use("/category", category);
 
 
-let numbers = [];
+let numbers = []; 
 
 // Play By Category Route ( /categoryPlay/:category ) code written on app.js (not good practice).
 app.get("/categoryplay/:category", async (req, res) => {
