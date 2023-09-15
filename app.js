@@ -31,8 +31,6 @@ let numbers = [];
 // Play By Category Route ( /categoryPlay/:category ) code written on app.js (not good practice).
 app.get("/categoryPlay/:category", async (req, res) => {
   const category = req.params.category;
-  console.log(category);
-
   let number = 0;
   const count = await Riddle.countDocuments({ Category: category }); // Count the number of documents in the collection
   try {
@@ -42,7 +40,7 @@ app.get("/categoryPlay/:category", async (req, res) => {
     ]);
 
     number = result[0].No;
-    console.log(number);
+  
 
 if (numbers.length === count) {
       numbers.splice(0, count - 1);
