@@ -6,7 +6,7 @@ function CategoryPlay() {
   const location = useLocation();
   const data = location.state;
   const category = data.categoryName;
-  console.log(category);
+
 
   return (
     <Fragment>
