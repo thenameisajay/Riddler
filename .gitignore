@@ -7,3 +7,4 @@
 front-end/node_modules/
 front-end/.env
 front-end/package-lock.json
+.DS_Store
