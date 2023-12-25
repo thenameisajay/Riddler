@@ -9,7 +9,7 @@ const connectDB = async () => {
       useUnifiedTopology: true,
     });
     console.log("Database connection has been established");
-    // Create the question and save it to the database
+    // Create the question and save it to the database (only once) to populate the database if it is empty 
 
     // const riddle = new Riddle({
     //   No: 1,

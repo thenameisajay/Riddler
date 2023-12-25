@@ -10,7 +10,7 @@ router.use(express.json());
 router.get("/", async (req, res) => {
   // Get the categories from the database
   try {
-    const result = await Riddle.find().distinct("Category");
+    const result = await Riddle?.find().distinct("Category");
     res.json(result);
   } catch (err) {
     console.error(err);

@@ -39,43 +39,43 @@ app.use("/random", random);
 app.use("/category", category);
 
 
-let numbers = []; 
+let numbers = [];
 
 // Play By Category Route ( /categoryPlay/:category ) code written on app.js (not good practice).
 app.get("/categoryplay/:category", async (req, res) => {
   const category = req.params.category;
   let number = 0;
-  const count = await Riddle.countDocuments({ Category: category }); // Count the number of documents in the collection
+  const count = await Riddle?.countDocuments({ Category: category }); // Count the number of documents in the collection
   try {
-    const result = await Riddle.aggregate([
-        { $match: { Category: category } },
-        { $sample: { size: 1 } },
+    const result = await Riddle?.aggregate([
+      { $match: { Category: category } },
+      { $sample: { size: 1 } },
     ]);
 
     number = result[0].No;
-  
 
-if (numbers.length === count) {
+
+    if (numbers.length === count) {
       numbers.splice(0, count - 1);
       console.log("The array has been reset");
-      return res.redirect(`/CategoryPlay/${category}`); 
+      return res.redirect(`/CategoryPlay/${category}`);
     }
 
-     // check if the number is in the array
+    // check if the number is in the array
     if (numbers.includes(number)) {
       console.log("This number is already in the array");
-      return res.redirect(`/CategoryPlay/${category}`); 
+      return res.redirect(`/CategoryPlay/${category}`);
     } else {
       numbers.push(number);
-     
+
       res.json(result);
     }
 
     console.log(numbers);
-} catch (err) {
+  } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Internal Server Error" });
-}
+  }
 
 });
 

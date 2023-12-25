@@ -13,10 +13,10 @@ router.get("/", async (req, res) => {
 
   try {
 
-    const count = await Riddle.countDocuments(); // Count the number of documents in the collection
-  
+    const count = await Riddle?.countDocuments(); // Count the number of documents in the collection
 
-    const result = await Riddle.aggregate([{ $sample: { size: 1 } }]);
+
+    const result = await Riddle?.aggregate([{ $sample: { size: 1 } }]);
     const number = result[0].No;
 
     if (numbers.length === count) {
