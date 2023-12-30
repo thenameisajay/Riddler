@@ -23,7 +23,7 @@ function Option() {
         >
           <button
             className="button-47"
-            type="submit"
+            type="button"
             style={{ marginLeft: "50px" }}
           >
             Random
@@ -32,7 +32,7 @@ function Option() {
         <Link to="/categories" className="no-underline">
           <button
             className="button-47"
-            type="submit"
+            type="button"
             style={{ marginLeft: "50px" }}
           >
             Category
@@ -41,7 +41,7 @@ function Option() {
         <Link to="/create" className="no-underline">
           <button
             className="button-47 "
-            type="submit"
+            type="button"
             style={{ marginLeft: "50px" }}
           >
             CREATE
@@ -50,7 +50,7 @@ function Option() {
         <Link to="/" className="no-underline">
           <button
             className="button-47"
-            type="submit"
+            type="button"
             style={{ marginLeft: "50px" }}
           >
             Back
