@@ -17,14 +17,14 @@ function Home() {
       </div>
       <h2>
         <span>
-          Made with{" "}
+          Crafted with{" "}
           <span role="img" aria-label="heart">
             💜
           </span>{" "}
           by{" "}
           <a href="https://github.com/thenameisajay">
             {" "}
-            Ajay Pradeep Mahadeven{" "}
+            thenameisajay{" "}
           </a>
         </span>
       </h2>

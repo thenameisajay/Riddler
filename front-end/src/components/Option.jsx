@@ -38,6 +38,15 @@ function Option() {
             Category
           </button>
         </Link>
+        <Link to="/create" className="no-underline">
+          <button
+            className="button-47 "
+            type="submit"
+            style={{ marginLeft: "50px" }}
+          >
+            CREATE
+          </button>
+        </Link>
         <Link to="/" className="no-underline">
           <button
             className="button-47"

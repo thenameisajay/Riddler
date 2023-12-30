@@ -1,10 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+
 import Categories from "../src/pages/Categories";
 import Options from "../src/pages/Options";
 import RandomPlay from "../src/pages/RandomPlay";
 import CategoryPlay from "../src/pages/CategoryPlay";
+import Create from "../src/pages/Create";
 
 import App from "./App";
 
@@ -28,6 +31,9 @@ const router = createBrowserRouter([
   {
     path: "/category_play",
     element: <CategoryPlay />
+  }, {
+    path: "/create",
+    element: <Create />
   }
 ]);
 

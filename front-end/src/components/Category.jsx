@@ -29,8 +29,11 @@ function Category() {
 
   // Function to set the selected category
   const handleCategoryClick = (categoryName) => {
+    console.log("Category name", categoryName);
     navigate("/category_play", { state: { categoryName } });
   };
+
+  console.log("Data", data);
 
   return (
     <Fragment>
@@ -52,7 +55,7 @@ function Category() {
             {item}
           </button>
         ))}
-        {/* </Link> */}
+
         <Link
           to="/options"
           className="no-underline"

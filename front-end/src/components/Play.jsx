@@ -13,6 +13,8 @@ function Play(props) {
 
   const selectedCategory = props.category;
 
+
+
   const fetchData = () => {
     setShowAnswer(false);
     const endpoint = `${API_URL}/categoryPlay/${selectedCategory}`;
